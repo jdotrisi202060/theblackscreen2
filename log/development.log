@@ -1,0 +1,214 @@
+  [4;36;1mSQL (9.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBlogs (20100217011304)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "blogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100217011304')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("blogs")[0m
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 20:13:24) [GET]
+  [4;36;1mBlog Load (0.9ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+Completed in 91ms (View: 84, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBlogs (20100217011304)
+Migrating to CreateUsers (20100217014055)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100217014055')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("blogs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 21:04:10) [GET]
+  [4;36;1mBlog Load (0.9ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+Completed in 50ms (View: 38, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 21:10:11) [GET]
+  [4;35;1mBlog Load (0.5ms)[0m   [0mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+
+ActionView::TemplateError (undefined local variable or method `current_user' for #<ActionView::Base:0x324f254>) on line #12 of app/views/layouts/application.html.erb:
+9:   <body>
+10:     <div id="container">
+11: 		<div id="user_nav">
+12: 		  <% if current_user %>
+13: 		    <%= link_to "Edit Profile", edit_user_path(:current) %> |
+14: 		    <%= link_to "Logout", logout_path %>
+15: 		  <% else %>
+
+    app/views/layouts/application.html.erb:12
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (161.2ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBlogs (20100217011304)
+Migrating to CreateUsers (20100217014055)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("blogs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 21:59:31) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;36;1mBlog Load (0.5ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-02-16 21:59:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 26ms (View: 12, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-02-16 21:59:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.7ms)
+Completed in 108ms (View: 97, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-02-16 21:59:55) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"darren.holland", "password"=>"[FILTERED]", "email"=>"test@email.com"}, "commit"=>"Submit", "action"=>"create", "authenticity_token"=>"YO6j1x1NHzcV+g2fgZkic7kgkrtMIyOCU0SmGM6nt8k=", "controller"=>"users"}
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@email.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'darren.holland') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '7550b809bdeef455257a76043d63a68ec7c0c1ca455e645c4aad13f78eb3e7badcc135f2b84cb3142a524f0c8727401d5b3ab302eb786f6c3b595644d391c720') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("updated_at", "crypted_password", "username", "password_salt", "persistence_token", "email", "created_at") VALUES('2010-02-17 02:59:55', 'ef5fd9ba6ec1d96ba5825bc22d2c468c12608be53079ff0dd09b75447c7c27b895e81e7629439cd1fd8e8ad41f5b6142a1e1859f27485275f1a7160e5575daa9', 'darren.holland', 'u14a4DHYk7fQLGkG7OdP', '7550b809bdeef455257a76043d63a68ec7c0c1ca455e645c4aad13f78eb3e7badcc135f2b84cb3142a524f0c8727401d5b3ab302eb786f6c3b595644d391c720', 'test@email.com', '2010-02-17 02:59:55')[0m
+Redirected to http://localhost:3000/
+Completed in 317ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 21:59:55) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;35;1mBlog Load (0.5ms)[0m   [0mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7550b809bdeef455257a76043d63a68ec7c0c1ca455e645c4aad13f78eb3e7badcc135f2b84cb3142a524f0c8727401d5b3ab302eb786f6c3b595644d391c720') LIMIT 1[0m
+Completed in 55ms (View: 49, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-02-16 21:59:58) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '7550b809bdeef455257a76043d63a68ec7c0c1ca455e645c4aad13f78eb3e7badcc135f2b84cb3142a524f0c8727401d5b3ab302eb786f6c3b595644d391c720') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 18ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 21:59:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;36;1mBlog Load (0.6ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+Completed in 22ms (View: 16, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-02-16 21:59:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 21ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-02-16 22:00:06) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"darren.holland", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"YO6j1x1NHzcV+g2fgZkic7kgkrtMIyOCU0SmGM6nt8k=", "controller"=>"user_sessions"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'darren.holland') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 20ms (DB: 0) | 302 Found [http://localhost/user_sessions]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 22:00:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;36;1mBlog Load (0.5ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 129ms (View: 123, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 22:01:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;36;1mBlog Load (0.5ms)[0m   [0;1mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Completed in 24ms (View: 18, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-02-16 22:01:09) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 19ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing BlogsController#index (for 127.0.0.1 at 2010-02-16 22:01:10) [GET]
+  Parameters: {"action"=>"index", "controller"=>"blogs"}
+  [4;35;1mBlog Load (0.5ms)[0m   [0mSELECT * FROM "blogs" [0m
+Rendering template within layouts/application
+Rendering blogs/index
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://localhost/]
