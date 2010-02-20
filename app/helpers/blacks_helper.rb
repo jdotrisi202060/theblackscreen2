@@ -1,0 +1,2 @@
+module BlacksHelper
+end

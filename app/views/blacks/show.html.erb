@@ -1,0 +1,18 @@
+<% title "Black" %>
+
+<%=h  @black.boxofshit_file_name %>
+
+<p>
+  <strong>Description:</strong>
+  <%=h @black.description %>
+</p>
+
+<p>
+  <%#= @black.boxofshit.url %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_black_path(@black) %> |
+  <%= link_to "Destroy", @black, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", blacks_path %>
+</p>

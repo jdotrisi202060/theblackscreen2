@@ -1,0 +1,15 @@
+<% form_for @black, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    
+  </p>
+  <p>
+    <%= f.file_field :boxofshit %><br />
+   
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
