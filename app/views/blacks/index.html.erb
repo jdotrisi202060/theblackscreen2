@@ -9,7 +9,7 @@
   <% for black in @blacks %>
     <tr>
       <td><%=h black.description %></td>
-      
+      <td><%=h black.user.id %></td>
       <td><%=h black.lastaccessed %></td>
       <td><%= link_to "Show", black %></td>
       <td><%= link_to "Edit", edit_black_path(black) %></td>

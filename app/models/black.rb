@@ -1,5 +1,5 @@
 class Black < ActiveRecord::Base
-
+  acts_as_taggable_on :tags, :blacks
   belongs_to :user 
 
 
@@ -18,4 +18,7 @@ class Black < ActiveRecord::Base
   
 
   attr_accessible :description, :lastaccessed, :boxofshit, :boxofshit_filename
+
+
+
 end

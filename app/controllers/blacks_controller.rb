@@ -1,10 +1,14 @@
 class BlacksController < ApplicationController
   def index
     @blacks = Black.all
+    @user = current_user
+    @black.user_id = @user.id
+   
   end
   
   def show
     @black = Black.find(params[:id])
+    
   end
   
   def new

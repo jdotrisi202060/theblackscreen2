@@ -11,5 +11,10 @@
     <%= f.file_field :boxofshit %><br />
    
   </p>
+  <b>Tags for this upload:</b> <%= text_field_tag('tags', '') %><br />
+  
+
+  <%#= f.tag_list :boxofshit %>
+
   <p><%= f.submit "Submit" %></p>
 <% end %>
